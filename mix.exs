@@ -8,10 +8,10 @@ defmodule NaiveBayes.Mixfile do
       elixir: "~> 1.2",
       package: package(),
       description: description(),
-      build_embedded: Mix.env == :prod,
-      start_permanent: Mix.env == :prod,
+      build_embedded: Mix.env() == :prod,
+      start_permanent: Mix.env() == :prod,
       deps: deps()
-   ]
+    ]
   end
 
   def application do
@@ -19,15 +19,17 @@ defmodule NaiveBayes.Mixfile do
   end
 
   defp deps do
-    [{:earmark, "~> 0.1", only: :dev},
-     {:ex_doc, "~> 0.11", only: :dev}]
+    [
+      {:earmark, "~> 0.1", only: :dev},
+      {:ex_doc, "~> 0.11", only: :dev}
+    ]
   end
 
   defp description do
-   """
-   An Elixir implementation of Naive Bayes
-   """
- end
+    """
+    An Elixir implementation of Naive Bayes
+    """
+  end
 
   defp package do
     [
